@@ -16,7 +16,7 @@
     border-radius: .5rem;
     padding: .5rem 1rem;
     font-size: 1.2rem;
-    font-family: "dacasa";
+    font-family: "AliceinWonderland";
     cursor: pointer;
     text-decoration: none;
     text-align: center;
@@ -52,6 +52,6 @@
     margin-left: 1rem;
 }
 
-.btn-row>* :first-child {
+.btn-row>*:first-child {
     margin-left: 0;
 }
