@@ -41,7 +41,6 @@ router.post("/", async (req, res) => {
     pageCount: req.body.pageCount,
     description: req.body.description
   });
-
   saveCover(book, req.body.cover);
 
   try {
@@ -52,7 +51,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//show book route
+// Show Book Route
 router.get("/:id", async (req, res) => {
   try {
     const book = await Book.findById(req.params.id)
@@ -64,7 +63,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//edit book route
+// Edit Book Route
 router.get("/:id/edit", async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -80,11 +79,11 @@ router.put("/:id", async (req, res) => {
 
   try {
     book = await Book.findById(req.params.id);
-    (book.title = req.body.title),
-      (book.author = req.body.author),
-      (book.publishDate = new Date(req.body.publishDate));
-    (book.pagecCount = req.body.pageCount),
-      (book.description = req.body.description);
+    book.title = req.body.title;
+    book.author = req.body.author;
+    book.publishDate = new Date(req.body.publishDate);
+    book.pageCount = req.body.pageCount;
+    book.description = req.body.description;
     if (req.body.cover != null && req.body.cover !== "") {
       saveCover(book, req.body.cover);
     }
@@ -99,7 +98,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//Delete Book Page
+// Delete Book Page
 router.delete("/:id", async (req, res) => {
   let book;
   try {
